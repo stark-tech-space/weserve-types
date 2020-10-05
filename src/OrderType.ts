@@ -1,4 +1,10 @@
 import firebase from 'firebase';
+import { Location } from "./UniversalType";
+
+export enum WsPaymentType {
+  CASH = "WS_PAYMENT_CASH",
+  CREDIT_CARD = "WS_PAYMENT_CREDIT_CARD",
+}
 
 export enum WsOrderStatusType {
   PENDING = "WS_STATUS_PENDING",
@@ -46,17 +52,19 @@ export enum GogovanOrderStatusType {
 }
 
 export type OrderDoc = {
-  type: string; //TODO: make enum in constants package
+  type: OrderType;
   createdAt: firebase.firestore.Timestamp;
   customer: {
     uid: string;
     displayName?: string;
+    phoneNumber?: string;
   };
   store: {
     id: string;
     currency?: string;
-    location: firebase.firestore.GeoPoint;
+    location: Location;
     delivery: object;
+    
   };
   preorderAt?: firebase.firestore.Timestamp;
   delivery?: {
@@ -65,22 +73,31 @@ export type OrderDoc = {
     isSelfDelivery: boolean;
     pickupDate: firebase.firestore.Timestamp;
     orderPrepareMinutes: number;
-    carriers: { [carrier in CarrierType]: any };
-    quotes: { [carrier in CarrierType]: { price: number } };
-    location: firebase.firestore.GeoPoint;
+    carriers: { [carrier in CarrierType]?: any };
+    quotes: { [carrier in CarrierType]?: { price: number } };
+    location: {
+      address: string;
+      floor: string;
+      note: string;
+    };
   };
-  paymentType: string; //TODO enum
-  status: string; //TODO enum
+  paymentType: WsPaymentType;
+  status: WsOrderStatusType;
   completedAt: firebase.firestore.Timestamp;
   note?: string;
   items: {
     id: string;
     count: number;
     note: string;
+    description?: string;
+    images?: string;
+    name?: string;
+    price?: number;
+    tax?: number;
     modifiers: { id: string; options: string[] }[];
   }[];
   subtotal: number;
   shippingFee: number;
   tax: number;
   total: number;
-}
+};
