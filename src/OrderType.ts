@@ -1,5 +1,5 @@
 import firebase from 'firebase';
-import { Location } from "./UniversalType";
+import { CurrencyCode, Location } from "./UniversalType";
 
 export enum WsPaymentType {
   CASH = "WS_PAYMENT_CASH",
@@ -56,18 +56,17 @@ export type OrderDoc = {
   createdAt: firebase.firestore.Timestamp;
   customer: {
     uid: string;
-    displayName?: string;
-    phoneNumber?: string;
+    displayName: string;
+    phoneNumber: string;
   };
   store: {
     id: string;
-    currency?: string;
+    currency: string;
     location: Location;
     delivery: object;
-    
   };
-  preorderAt?: firebase.firestore.Timestamp;
-  delivery?: {
+  preorderAt: firebase.firestore.Timestamp;
+  delivery: {
     activeCarrierType: string;
     note: string;
     isSelfDelivery: boolean;
@@ -84,18 +83,29 @@ export type OrderDoc = {
   paymentType: WsPaymentType;
   status: WsOrderStatusType;
   completedAt: firebase.firestore.Timestamp;
-  note?: string;
-  items: {
+  note: string;
+  items: Item[];
+  subtotal: number;
+  shippingFee: number;
+  tax: number;
+  total: number;
+};
+
+export type OrderPendingDoc = {
+  type: OrderType;
+  createdAt: firebase.firestore.Timestamp;
+  customer: {
+    uid: string;
+  };
+  store: {
     id: string;
-    count: number;
-    note: string;
-    description?: string;
-    images?: string;
-    name?: string;
-    price?: number;
-    tax?: number;
-    modifiers: { id: string; options: string[] }[];
-  }[];
+  };
+  preorderAt: firebase.firestore.Timestamp;
+  paymentType: WsPaymentType;
+  status: WsOrderStatusType;
+  completedAt: firebase.firestore.Timestamp;
+  note: string;
+  items: Item[];
   subtotal: number;
   shippingFee: number;
   tax: number;
