@@ -11,6 +11,7 @@ export type StoreDoc = {
 	autoConfirmedReservations: boolean;
 	requireCustomerConfirmedReservations: boolean;
 	orderPrepareMinutes: number;
+	preorderLimit: number;
 	delivery: {
 		maxDistance: number;
 		costShare: number;

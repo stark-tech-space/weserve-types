@@ -9,6 +9,7 @@ export enum WsPaymentType {
 export enum WsOrderStatusType {
 	PENDING = 'WS_STATUS_PENDING',
 	CREATED = 'WS_STATUS_CREATED',
+	RETRY = 'WS_STATUS_RETRY',
 	ACCEPTED = 'WS_STATUS_ACCEPTED',
 	PREPARED = 'WS_STATUS_PREPARED',
 	PICKED = 'WS_STATUS_PICKED',
@@ -107,6 +108,7 @@ export type OrderDoc = {
 		isSelfDelivery: boolean;
 		pickupDate: firebase.firestore.Timestamp;
 		orderPrepareMinutes: number;
+		estimateInTraffic: number;
 		carriers: { [carrier in CarrierType]?: any };
 		quotes: { [carrier in CarrierType]?: { price: number } };
 		location: Location;
