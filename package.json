@@ -1,11 +1,12 @@
 {
 	"name": "@stark-tech-space/weserve-types",
-	"version": "1.0.3",
+	"version": "1.0.4",
 	"description": "Weserve Types",
-	"main": "index.d.js",
+	"main": "",
 	"scripts": {
 		"build": "tsc",
-		"test": "dtslint types"
+		"test": "dtslint types",
+		"prepublishOnly": "npm run build"
 	},
 	"repository": {
 		"type": "git",
