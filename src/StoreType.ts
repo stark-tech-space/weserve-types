@@ -1,5 +1,6 @@
 import firebase from 'firebase';
 import { MenuInfo, CategoryInfo, ItemInfo, ModifierInfo } from './MenuType';
+import { OrderRequestItem } from './OrderType';
 import { CurrencyCode, Location, Schedule } from './UniversalType';
 
 export type StoreDoc = {
@@ -46,4 +47,9 @@ export type CustomerDoc = {
 	blockedAt: firebase.firestore.Timestamp;
 	allowOrders: boolean;
 	allowReservations: boolean;
+};
+
+export type GroupbuyDoc = {
+	host: string;
+	cart: { [customerUid: string]: OrderRequestItem[] };
 };
