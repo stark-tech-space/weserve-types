@@ -1,6 +1,6 @@
 {
 	"name": "@stark-tech-space/weserve-types",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"description": "Weserve Types",
 	"main": "dist/index.js",
 	"scripts": {
@@ -10,7 +10,7 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/@stark-tech-space/weserve-types.git"
+		"url": "git+https://github.com/stark-tech-space/weserve-types.git"
 	},
 	"publishConfig": {
 		"registry": "https://npm.pkg.github.com/@stark-tech-space"
