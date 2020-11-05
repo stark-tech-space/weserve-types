@@ -1,24 +1,32 @@
 {
-  "name": "@frank00125/weserve-types",
-  "version": "1.0.0",
-  "description": "Weserve Types",
-  "main": "dist/index.js",
-  "scripts": {
-    "build": "tsc",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "prepublish": "npm run build"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com//dida-node.git"
-  },
-  "keywords": [],
-  "license": "MIT",
-  "devDependencies": {
-    "@types/node": "^14.11.2",
-    "typescript": "^4.0.3"
-  },
-  "dependencies": {
-    "firebase": "^7.22.0"
-  }
+	"name": "@stark-tech-space/weserve-types",
+	"version": "1.0.0",
+	"description": "Weserve Types",
+	"main": "dist/index.js",
+	"scripts": {
+		"build": "tsc",
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"prepublishOnly": "npm run build"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/@stark-tech-space/weserve-types.git"
+	},
+	"publishConfig": {
+		"registry": "https://npm.pkg.github.com/@stark-tech-space"
+	},
+	"keywords": [],
+	"author": "Stark Tech",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/stark-tech-space/weserve-types/issues"
+	},
+	"homepage": "https://github.com/stark-tech-space/weserve-types#readme",
+	"devDependencies": {
+		"@types/node": "^14.11.2",
+		"typescript": "^4.0.3"
+	},
+	"dependencies": {
+		"firebase": "^8.0.0"
+	}
 }
