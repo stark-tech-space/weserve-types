@@ -5,8 +5,7 @@
 	"main": "dist/index.js",
 	"scripts": {
 		"build": "tsc",
-		"test": "echo \"Error: no test specified\" && exit 1",
-		"prepublishOnly": "npm run build"
+		"test": "dtslint types"
 	},
 	"repository": {
 		"type": "git",
@@ -24,6 +23,7 @@
 	"homepage": "https://github.com/stark-tech-space/weserve-types#readme",
 	"devDependencies": {
 		"@types/node": "^14.11.2",
+		"dtslint": "^4.0.5",
 		"typescript": "^4.0.3"
 	},
 	"dependencies": {
